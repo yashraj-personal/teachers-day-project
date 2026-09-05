@@ -24,6 +24,8 @@ export function MusicPlayer() {
   const [volume, setVolume] = useState(0.85)
   const [peakActive, setPeakActive] = useState(false)
   const [started, setStarted] = useState(false)
+  const [audioReady, setAudioReady] = useState(false)
+  const [audioError, setAudioError] = useState(false)
 
   useEffect(() => {
     const audio = audioRef.current
@@ -33,17 +35,35 @@ export function MusicPlayer() {
       const pulse = audio.duration ? (Math.sin(audio.currentTime * 7.5) + 1) / 2 : 0
       setAudioPulse(audio.paused ? 0 : pulse)
     }
-    const onLoaded = () => setDuration(audio.duration)
+    const onLoaded = () => {
+      setDuration(audio.duration)
+      setAudioReady(true)
+      setAudioError(false)
+    }
+    const onCanPlay = () => {
+      setAudioReady(true)
+      setAudioError(false)
+    }
+    const onError = () => {
+      setAudioReady(false)
+      setAudioError(true)
+      setAudioPlaying(false)
+      setAudioPulse(0)
+    }
     const onEnd = () => {
       setAudioPlaying(false)
       setAudioPulse(0)
     }
     audio.addEventListener("timeupdate", onTime)
     audio.addEventListener("loadedmetadata", onLoaded)
+    audio.addEventListener("canplay", onCanPlay)
+    audio.addEventListener("error", onError)
     audio.addEventListener("ended", onEnd)
     return () => {
       audio.removeEventListener("timeupdate", onTime)
       audio.removeEventListener("loadedmetadata", onLoaded)
+      audio.removeEventListener("canplay", onCanPlay)
+      audio.removeEventListener("error", onError)
       audio.removeEventListener("ended", onEnd)
     }
   }, [setAudioPlaying, setAudioPulse])
@@ -56,7 +76,7 @@ export function MusicPlayer() {
 
   const togglePlay = () => {
     const audio = audioRef.current
-    if (!audio) return
+    if (!audio || audioError) return
     if (audioPlaying) {
       audio.pause()
       setAudioPlaying(false)
@@ -159,7 +179,8 @@ export function MusicPlayer() {
             onClick={togglePlay}
             whileTap={{ scale: 0.92 }}
             aria-label={audioPlaying ? "Pause song" : "Play song"}
-            className="flex h-14 w-14 items-center justify-center rounded-full bg-primary text-primary-foreground shadow-lg shadow-primary/30"
+            disabled={audioError}
+            className="flex h-14 w-14 disabled:cursor-not-allowed disabled:opacity-50 items-center justify-center rounded-full bg-primary text-primary-foreground shadow-lg shadow-primary/30"
           >
             {audioPlaying ? <Pause className="h-5 w-5" /> : <Play className="h-5 w-5" />}
           </motion.button>
@@ -176,11 +197,13 @@ export function MusicPlayer() {
           />
         </div>
 
-        {!started && (
-          <p className="mt-4 text-center text-[11px] text-muted-foreground">
-            Press play to hear the tribute song, made just for our teachers.
-          </p>
-        )}
+        <div className="mt-5 flex flex-wrap items-center justify-center gap-2 text-center text-[11px] text-muted-foreground">
+          <span className={`inline-flex items-center gap-2 rounded-full border px-3 py-1.5 ${audioError ? "border-destructive/40 text-destructive" : audioReady ? "border-connected/30 text-connected" : "border-border"}`}>
+            <span className={`size-1.5 rounded-full ${audioError ? "bg-destructive" : audioReady ? "bg-connected" : "animate-pulse bg-gold"}`} aria-hidden="true" />
+            {audioError ? "Song unavailable — refresh to retry" : audioReady ? "Ready to play" : "Loading song..."}
+          </span>
+          {!started && !audioError && <span>Press play to hear the tribute song, made just for our teachers.</span>}
+        </div>
       </motion.div>
 
       <LyricsPanel />

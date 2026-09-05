@@ -5,6 +5,9 @@ const nextConfig = {
   output: isGitHubPages ? "export" : undefined,
   basePath: isGitHubPages ? "/teachers-day-project" : "",
   assetPrefix: isGitHubPages ? "/teachers-day-project/" : undefined,
+  env: {
+    NEXT_PUBLIC_BASE_PATH: isGitHubPages ? "/teachers-day-project" : "",
+  },
   trailingSlash: true,
   images: {
     unoptimized: true,
