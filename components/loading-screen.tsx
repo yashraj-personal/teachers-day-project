@@ -4,7 +4,7 @@ import { useEffect, useState } from "react"
 import { AnimatePresence, motion } from "framer-motion"
 import { SITE_CONFIG } from "@/lib/site-config"
 
-const STEPS = ["IIIT PATNA", "Initializing classroom...", "Loading four semesters of memories..."]
+const STEPS = ["IIT PATNA", "Setting up our classroom...", "Gathering four semesters of memories..."]
 
 export function LoadingScreen({ onDone }: { onDone: () => void }) {
   const [step, setStep] = useState(0)

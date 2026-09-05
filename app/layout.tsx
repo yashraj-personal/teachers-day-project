@@ -8,14 +8,16 @@ import { ParticleCursor } from '@/components/particle-cursor'
 import { MadeByYashBadge } from '@/components/made-by-yash-badge'
 import { ClassProgressBar } from '@/components/class-progress'
 import { ConnectionStatusBadge } from '@/components/connection-status-badge'
+import { AtmosphereEffects } from '@/components/atmosphere-effects'
+import { ContactButton } from '@/components/contact-button'
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
 const spaceGrotesk = Space_Grotesk({ subsets: ['latin'], variable: '--font-space-grotesk' })
 
 export const metadata: Metadata = {
-  title: "The Teacher Effect | IIIT Patna Teachers' Day Tribute",
+  title: "The Teacher Effect | IIT Patna Teachers' Day Tribute",
   description:
-    "A cinematic Teachers' Day tribute from the IIIT Patna Online Certification Batch — every doubt answered, every lesson remembered.",
+    "A cinematic Teachers' Day tribute from the IIT Patna Online Certification Batch — every doubt answered, every lesson remembered.",
   generator: 'v0.app',
   icons: {
     icon: [
@@ -54,6 +56,8 @@ export default function RootLayout({
           <ClassProgressBar />
           <ConnectionStatusBadge />
           <MadeByYashBadge />
+          <ContactButton />
+          <AtmosphereEffects />
           <MagneticCursor />
           <ParticleCursor />
           {children}

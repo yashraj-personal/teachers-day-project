@@ -16,6 +16,8 @@ type SiteExperienceValue = {
   setClassroomMode: (mode: ClassroomMode) => void
   audioPlaying: boolean
   setAudioPlaying: (playing: boolean) => void
+  audioPulse: number
+  setAudioPulse: (pulse: number) => void
   teacherModeActive: boolean
   activateTeacherMode: () => void
 }
@@ -28,6 +30,7 @@ export function SiteExperienceProvider({ children }: { children: ReactNode }) {
   const [connection, setConnection] = useState<ConnectionState>("strong")
   const [classroomMode, setClassroomMode] = useState<ClassroomMode>("day")
   const [audioPlaying, setAudioPlaying] = useState(false)
+  const [audioPulse, setAudioPulse] = useState(0)
   const [teacherModeActive, setTeacherModeActive] = useState(false)
 
   const activateTeacherMode = useCallback(() => setTeacherModeActive(true), [])
@@ -44,10 +47,12 @@ export function SiteExperienceProvider({ children }: { children: ReactNode }) {
       setClassroomMode,
       audioPlaying,
       setAudioPlaying,
+      audioPulse,
+      setAudioPulse,
       teacherModeActive,
       activateTeacherMode,
     }),
-    [activeSection, progress, connection, classroomMode, audioPlaying, teacherModeActive, activateTeacherMode],
+    [activeSection, progress, connection, classroomMode, audioPlaying, audioPulse, teacherModeActive, activateTeacherMode],
   )
 
   return <SiteExperienceContext.Provider value={value}>{children}</SiteExperienceContext.Provider>

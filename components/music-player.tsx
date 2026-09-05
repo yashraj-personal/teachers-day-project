@@ -16,7 +16,7 @@ function formatTime(seconds: number) {
 }
 
 export function MusicPlayer() {
-  const { audioPlaying, setAudioPlaying } = useSiteExperience()
+  const { audioPlaying, setAudioPlaying, setAudioPulse } = useSiteExperience()
   const audioRef = useRef<HTMLAudioElement>(null)
   const [duration, setDuration] = useState(0)
   const [currentTime, setCurrentTime] = useState(0)
@@ -28,9 +28,16 @@ export function MusicPlayer() {
   useEffect(() => {
     const audio = audioRef.current
     if (!audio) return
-    const onTime = () => setCurrentTime(audio.currentTime)
+    const onTime = () => {
+      setCurrentTime(audio.currentTime)
+      const pulse = audio.duration ? (Math.sin(audio.currentTime * 7.5) + 1) / 2 : 0
+      setAudioPulse(audio.paused ? 0 : pulse)
+    }
     const onLoaded = () => setDuration(audio.duration)
-    const onEnd = () => setAudioPlaying(false)
+    const onEnd = () => {
+      setAudioPlaying(false)
+      setAudioPulse(0)
+    }
     audio.addEventListener("timeupdate", onTime)
     audio.addEventListener("loadedmetadata", onLoaded)
     audio.addEventListener("ended", onEnd)
@@ -39,7 +46,7 @@ export function MusicPlayer() {
       audio.removeEventListener("loadedmetadata", onLoaded)
       audio.removeEventListener("ended", onEnd)
     }
-  }, [setAudioPlaying])
+  }, [setAudioPlaying, setAudioPulse])
 
   useEffect(() => {
     if (!duration) return
@@ -53,13 +60,17 @@ export function MusicPlayer() {
     if (audioPlaying) {
       audio.pause()
       setAudioPlaying(false)
+      setAudioPulse(0)
       return
     }
 
     setStarted(true)
     void audio.play().then(
       () => setAudioPlaying(true),
-      () => setAudioPlaying(false),
+      () => {
+        setAudioPlaying(false)
+        setAudioPulse(0)
+      },
     )
   }
 

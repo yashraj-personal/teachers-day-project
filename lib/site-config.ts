@@ -1,6 +1,6 @@
 export const SITE_CONFIG = {
   title: "THE TEACHER EFFECT",
-  institute: "IIIT PATNA",
+  institute: "IIT PATNA",
   batchName: "Online Certification Batch",
   occasion: "TEACHERS' DAY",
   date: "September 5",
