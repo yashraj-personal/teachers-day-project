@@ -1,5 +1,11 @@
 /** @type {import('next').NextConfig} */
+const isGitHubPages = process.env.GITHUB_ACTIONS === "true"
+
 const nextConfig = {
+  output: isGitHubPages ? "export" : undefined,
+  basePath: isGitHubPages ? "/teachers-day-project" : "",
+  assetPrefix: isGitHubPages ? "/teachers-day-project/" : undefined,
+  trailingSlash: true,
   images: {
     unoptimized: true,
   },
