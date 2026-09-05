@@ -91,7 +91,28 @@
     scroll-behavior: smooth;
   }
   body {
-    @apply bg-background text-foreground font-sans;
+    @apply min-h-screen overflow-x-hidden bg-background text-foreground font-sans;
+  }
+
+  button,
+  a,
+  input,
+  textarea,
+  select {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  button:focus-visible,
+  a:focus-visible,
+  input:focus-visible,
+  textarea:focus-visible,
+  select:focus-visible {
+    @apply outline-2 outline-offset-4 outline-ring;
+  }
+
+  ::selection {
+    background: color-mix(in srgb, var(--primary) 35%, transparent);
+    color: var(--foreground);
   }
 }
 
@@ -139,6 +160,42 @@
   }
   .no-scrollbar {
     scrollbar-width: none;
+  }
+
+  .motion-safe-float {
+    animation: gentle-float 7s ease-in-out infinite;
+  }
+
+  .motion-safe-shimmer {
+    background-size: 200% 100%;
+    animation: shimmer 5s ease-in-out infinite;
+  }
+
+  @keyframes gentle-float {
+    0%,
+    100% {
+      transform: translate3d(0, 0, 0);
+    }
+    50% {
+      transform: translate3d(0, -8px, 0);
+    }
+  }
+
+  @keyframes shimmer {
+    0%,
+    100% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+  }
+}
+
+@media (max-width: 640px) {
+  html.custom-cursor-active,
+  html.custom-cursor-active * {
+    cursor: auto !important;
   }
 }
 

@@ -50,7 +50,7 @@ export function ClassroomControls() {
       animate={{ y: visible ? 0 : 80, opacity: visible ? 1 : 0 }}
       transition={{ type: "spring", stiffness: 260, damping: 26 }}
       aria-label="Section navigation"
-      className="fixed bottom-4 left-1/2 z-50 -translate-x-1/2 px-2"
+      className="fixed bottom-[max(1rem,env(safe-area-inset-bottom))] left-1/2 z-50 max-w-[calc(100vw-1rem)] -translate-x-1/2 px-2"
     >
       <ul className="glass-panel flex items-center gap-1 rounded-full p-1.5 shadow-lg">
         {SITE_CONFIG.navItems.map((item) => {

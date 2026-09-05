@@ -53,11 +53,14 @@ export function MusicPlayer() {
     if (audioPlaying) {
       audio.pause()
       setAudioPlaying(false)
-    } else {
-      setStarted(true)
-      audio.play().catch(() => {})
-      setAudioPlaying(true)
+      return
     }
+
+    setStarted(true)
+    void audio.play().then(
+      () => setAudioPlaying(true),
+      () => setAudioPlaying(false),
+    )
   }
 
   const toggleMute = () => {
