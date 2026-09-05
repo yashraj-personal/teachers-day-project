@@ -10,6 +10,8 @@ import { ClassProgressBar } from '@/components/class-progress'
 import { ConnectionStatusBadge } from '@/components/connection-status-badge'
 import { AtmosphereEffects } from '@/components/atmosphere-effects'
 import { ContactButton } from '@/components/contact-button'
+import { ThemeProvider } from '@/components/theme-provider'
+import { ThemeSwitcher } from '@/components/theme-switcher'
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
 const spaceGrotesk = Space_Grotesk({ subsets: ['latin'], variable: '--font-space-grotesk' })
@@ -50,9 +52,12 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className={`light ${inter.variable} ${spaceGrotesk.variable}`}>
+    <html lang="en" data-theme="dark" className={`${inter.variable} ${spaceGrotesk.variable}`}>
+
       <body className="bg-background text-foreground antialiased font-sans">
-        <SiteExperienceProvider>
+        <ThemeProvider>
+          <SiteExperienceProvider>
+            <ThemeSwitcher />
           <ClassProgressBar />
           <ConnectionStatusBadge />
           <MadeByYashBadge />
@@ -61,7 +66,8 @@ export default function RootLayout({
           <MagneticCursor />
           <ParticleCursor />
           {children}
-        </SiteExperienceProvider>
+          </SiteExperienceProvider>
+        </ThemeProvider>
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>
     </html>

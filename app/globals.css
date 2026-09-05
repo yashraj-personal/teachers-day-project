@@ -77,9 +77,28 @@
   --radius: 1rem;
 }
 
-/* This site has a fixed dark-gradient identity by design and does not follow the system light-mode preference. */
-.dark {
-  color-scheme: dark;
+[data-theme="light"] {
+  color-scheme: light;
+  --background: #f7f9fc;
+  --foreground: #172033;
+  --card: #ffffff;
+  --card-foreground: #172033;
+  --popover: #ffffff;
+  --popover-foreground: #172033;
+  --primary: #2563c7;
+  --primary-foreground: #ffffff;
+  --secondary: #e8eef8;
+  --secondary-foreground: #172033;
+  --muted: #edf2f8;
+  --muted-foreground: #62708a;
+  --accent: #0f9ac7;
+  --accent-foreground: #ffffff;
+  --border: rgba(23, 32, 51, 0.13);
+  --input: rgba(23, 32, 51, 0.16);
+  --ring: #2563c7;
+  --gold: #c98908;
+  --sky: #0f9ac7;
+  --connected: #12845f;
 }
 
 @layer base {
@@ -126,22 +145,22 @@
   }
 
   .bg-app-gradient {
-    background: radial-gradient(120% 120% at 15% 0%, #16233c 0%, #0b1122 45%, #07090f 100%);
+    background: radial-gradient(120% 120% at 15% 0%, color-mix(in srgb, var(--secondary) 88%, var(--background)) 0%, var(--background) 72%);
   }
 
   .bg-panel-gradient {
-    background: linear-gradient(135deg, rgba(22, 32, 51, 0.9) 0%, rgba(11, 17, 34, 0.75) 100%);
+    background: linear-gradient(135deg, color-mix(in srgb, var(--secondary) 86%, transparent) 0%, color-mix(in srgb, var(--background) 92%, transparent) 100%);
   }
 
   .bg-gold-gradient {
-    background: linear-gradient(135deg, #f4b942 0%, #fbd576 100%);
+    background: linear-gradient(135deg, var(--gold) 0%, color-mix(in srgb, var(--gold) 60%, var(--card)) 100%);
   }
 
   .glass-panel {
-    background: rgba(17, 23, 37, 0.65);
+    background: color-mix(in srgb, var(--card) 72%, transparent);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
-    border: 1px solid rgba(233, 238, 251, 0.1);
+    border: 1px solid color-mix(in srgb, var(--foreground) 12%, transparent);
   }
 
   .glow-ring {
