@@ -6,7 +6,7 @@ export const SITE_CONFIG = {
   date: "September 5",
   songTitle: "Aap Se Hi Seekha",
   songTagline: "Created with AI. Felt by humans.",
-  audioSrc: "/audio/aap-se-hi-seekha.mp3",
+  audioSrc: `${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/audio/aap-se-hi-seekha.mp3`,
   teacherModeCode: "MASAI",
   credit: "MADE BY YASH",
   stats: [
