@@ -18,6 +18,7 @@ import { GiftBox } from "@/components/gift-box"
 import { PartyPopperControl } from "@/components/party-popper-control"
 import { InfiniteEnding } from "@/components/infinite-ending"
 import { WaterRippleLayer } from "@/components/water-ripple-layer"
+import { GraduationCapScene } from "@/components/graduation-cap"
 
 export default function Page() {
   const [loaded, setLoaded] = useState(false)
@@ -35,6 +36,7 @@ export default function Page() {
           <ClassroomModeSwitcher />
           <GratitudeTerminal />
           <GratitudeStats />
+          <GraduationCapScene />
           <HoverRevealSection />
           <GiftBox />
           <LetterPuzzle />
