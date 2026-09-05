@@ -7,10 +7,16 @@ export function GratitudeStats() {
   return (
     <section id="tribute" className="relative flex min-h-[70vh] flex-col items-center justify-center bg-app-gradient px-4 py-24 sm:px-6">
       <div className="mb-10 flex flex-col items-center gap-3 text-center">
-        <span className="rounded-full border border-border bg-white/70 px-3 py-1 text-[11px] font-medium tracking-widest text-primary">
+        <span className="rounded-full border border-primary/25 bg-card/80 px-3 py-1 text-[11px] font-medium tracking-widest text-primary shadow-sm">
           NUMBERS THAT DON&apos;T CAPTURE IT
         </span>
         <h2 className="font-heading text-3xl font-semibold text-foreground sm:text-4xl">But we counted anyway</h2>
+      </div>
+
+      <div className="mb-8 flex items-center gap-3 rounded-full border border-connected/25 bg-connected/10 px-4 py-2 text-sm text-connected">
+        <span className="h-2 w-2 animate-pulse rounded-full bg-connected" />
+        <span>72 students connected</span>
+        <span className="student-connection-dots" aria-hidden="true">+ + +</span>
       </div>
 
       <div className="grid w-full max-w-3xl grid-cols-2 gap-4 sm:grid-cols-4">

@@ -29,7 +29,7 @@ export function ClassProgressBar() {
         transition={{ ease: "linear" }}
       />
       {complete && (
-        <div className="absolute right-3 top-2 rounded-full border border-border bg-white/85 px-2.5 py-1 text-[10px] font-medium text-primary shadow-sm">
+        <div className="absolute right-3 top-2 rounded-full border border-border bg-card/90 px-2.5 py-1 text-[10px] font-medium text-primary shadow-sm">
           Class complete
         </div>
       )}

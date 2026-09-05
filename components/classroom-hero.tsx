@@ -10,7 +10,7 @@ const STATUS_SEQUENCE = ["Connecting...", "Checking classroom...", "Connecting t
 
 const DIALOGUE = [
   "Can everyone see the screen?",
-  "Yes ma'am, loud and clear.",
+  "Yes sir, loud and clear.",
   "Good. Let's begin today's lesson.",
 ]
 
@@ -80,7 +80,7 @@ export function ClassroomHero() {
                     className="relative flex aspect-square flex-col items-center justify-center gap-2 rounded-2xl bg-secondary"
                   >
                     <span className="font-heading text-lg font-semibold text-primary">{tile.initials}</span>
-                    <span className="absolute bottom-1.5 right-1.5 rounded-full bg-white/80 p-1">
+                    <span className="absolute bottom-1.5 right-1.5 rounded-full bg-card/90 p-1">
                       {tile.muted ? (
                         <MicOff className="h-3 w-3 text-muted-foreground" />
                       ) : (
@@ -106,10 +106,10 @@ export function ClassroomHero() {
                 <span className="text-xs font-medium uppercase tracking-widest text-muted-foreground">
                   Our Teachers
                 </span>
-                <span className="absolute bottom-2 right-2 rounded-full bg-white/80 p-1">
+                <span className="absolute bottom-2 right-2 rounded-full bg-card/90 p-1">
                   <Video className="h-3.5 w-3.5 text-connected" />
                 </span>
-                <span className="absolute left-2 top-2 flex items-center gap-1 rounded-full bg-white/80 px-2 py-0.5">
+                <span className="absolute left-2 top-2 flex items-center gap-1 rounded-full bg-card/90 px-2 py-0.5">
                   <MessageSquare className="h-3 w-3 text-primary" />
                   <span className="text-[10px] font-medium text-primary">3</span>
                 </span>
@@ -142,7 +142,7 @@ export function ClassroomHero() {
             transition={{ duration: 0.7 }}
             className="flex flex-col items-center gap-5 text-center"
           >
-            <span className="rounded-full border border-border bg-white/70 px-3 py-1 text-[11px] font-medium tracking-widest text-primary">
+            <span className="rounded-full border border-border bg-card/80 shadow-sm px-3 py-1 text-[11px] font-medium tracking-widest text-primary">
               {SITE_CONFIG.institute} · {SITE_CONFIG.batchName}
             </span>
             <h1 className="font-heading text-balance-tight text-4xl font-semibold leading-[1.05] text-foreground sm:text-6xl md:text-7xl">

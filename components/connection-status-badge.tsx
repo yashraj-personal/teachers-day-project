@@ -26,7 +26,7 @@ export function ConnectionStatusBadge() {
           initial={{ opacity: 0, y: -6 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -6 }}
-          className="flex items-center gap-1.5 rounded-full border border-border bg-white/70 px-3 py-1 text-[10px] font-medium tracking-wide text-foreground shadow-sm backdrop-blur-sm"
+          className="flex items-center gap-1.5 rounded-full border border-border bg-card/90 shadow-sm px-3 py-1 text-[10px] font-medium tracking-wide text-foreground shadow-sm backdrop-blur-sm"
         >
           <motion.span
             animate={{ opacity: [1, 0.4, 1] }}

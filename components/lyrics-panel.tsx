@@ -21,7 +21,7 @@ export function LyricsPanel() {
         onClick={() => setOpen((v) => !v)}
         aria-expanded={open}
         aria-controls="lyrics-content"
-        className="flex w-full items-center justify-between gap-3 px-5 py-4 text-left transition-colors hover:bg-white/40"
+        className="flex w-full items-center justify-between gap-3 px-5 py-4 text-left transition-colors hover:bg-secondary/70"
       >
         <span className="flex items-center gap-2.5">
           <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">

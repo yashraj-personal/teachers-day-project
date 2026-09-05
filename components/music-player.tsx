@@ -116,7 +116,7 @@ export function MusicPlayer() {
         className="glass-panel glow-ring w-full max-w-2xl rounded-3xl p-6 sm:p-10"
       >
         <div className="mb-6 flex flex-col items-center gap-2 text-center">
-          <span className="rounded-full border border-border bg-white/70 px-3 py-1 text-[11px] font-medium tracking-widest text-primary">
+          <span className="rounded-full border border-border bg-card/80 shadow-sm px-3 py-1 text-[11px] font-medium tracking-widest text-primary">
             NOW PLAYING
           </span>
           <h3 className="font-heading text-2xl font-semibold text-foreground sm:text-3xl">{SITE_CONFIG.songTitle}</h3>

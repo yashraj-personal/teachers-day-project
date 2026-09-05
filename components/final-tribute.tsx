@@ -49,7 +49,7 @@ export function FinalTribute() {
           onClick={() => document.getElementById("home")?.scrollIntoView({ behavior: "smooth" })}
           whileHover={{ y: -2 }}
           whileTap={{ scale: 0.96 }}
-          className="mt-4 rounded-full border border-border bg-white/70 px-5 py-2.5 text-sm font-medium text-foreground shadow-sm"
+          className="mt-4 rounded-full border border-border bg-card/80 shadow-sm px-5 py-2.5 text-sm font-medium text-foreground shadow-sm"
         >
           Relive the tribute
         </motion.button>

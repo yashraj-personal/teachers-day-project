@@ -43,7 +43,7 @@ export function FloatingWindows() {
       className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden bg-app-gradient px-4 py-24 sm:px-6"
     >
       <div className="mb-10 flex flex-col items-center gap-3 text-center">
-        <span className="rounded-full border border-border bg-white/70 px-3 py-1 text-[11px] font-medium tracking-widest text-primary">
+        <span className="rounded-full border border-border bg-card/80 shadow-sm px-3 py-1 text-[11px] font-medium tracking-widest text-primary">
           MOMENTS WE KEPT
         </span>
         <h2 className="font-heading text-3xl font-semibold text-foreground sm:text-4xl">Little windows, big memories</h2>
