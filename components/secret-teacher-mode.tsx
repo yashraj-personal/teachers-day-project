@@ -25,7 +25,7 @@ export function SecretTeacherMode() {
   return (
     <section className="relative flex min-h-[60vh] flex-col items-center justify-center bg-app-gradient px-4 py-24 sm:px-6">
       <div className="mb-8 flex flex-col items-center gap-3 text-center">
-        <span className="rounded-full border border-border bg-white/70 px-3 py-1 text-[11px] font-medium tracking-widest text-primary">
+        <span className="rounded-full border border-border bg-card/80 shadow-sm px-3 py-1 text-[11px] font-medium tracking-widest text-primary">
           FOR EDUCATORS ONLY
         </span>
         <h2 className="font-heading text-3xl font-semibold text-foreground sm:text-4xl">A hidden staff room</h2>
@@ -51,7 +51,7 @@ export function SecretTeacherMode() {
             <label htmlFor="teacher-code" className="sr-only">
               Teacher access code
             </label>
-            <div className="flex w-full items-center gap-2 rounded-full border border-border bg-white/80 px-4 py-2">
+            <div className="flex w-full items-center gap-2 rounded-full border border-border bg-card/90 px-4 py-2">
               <KeyRound className="h-3.5 w-3.5 text-muted-foreground" />
               <input
                 id="teacher-code"

@@ -8,7 +8,6 @@ import { MainHero } from "@/components/main-hero"
 import { MusicPlayer } from "@/components/music-player"
 import { FloatingWindows } from "@/components/floating-windows"
 import { InteractiveBook } from "@/components/interactive-book"
-import { GraduationCapScene } from "@/components/graduation-cap"
 import { ClassroomModeSwitcher } from "@/components/classroom-mode-switcher"
 import { GratitudeTerminal } from "@/components/gratitude-terminal"
 import { GratitudeStats } from "@/components/gratitude-stats"
@@ -18,6 +17,8 @@ import { HoverRevealSection } from "@/components/hover-reveal-section"
 import { GiftBox } from "@/components/gift-box"
 import { PartyPopperControl } from "@/components/party-popper-control"
 import { InfiniteEnding } from "@/components/infinite-ending"
+import { WaterRippleLayer } from "@/components/water-ripple-layer"
+import { GraduationCapScene } from "@/components/graduation-cap"
 
 export default function Page() {
   const [loaded, setLoaded] = useState(false)
@@ -26,16 +27,16 @@ export default function Page() {
     <>
       <LoadingScreen onDone={() => setLoaded(true)} />
       {loaded && (
-        <main>
+        <main className="page-ambient">
           <ClassroomHero />
           <MainHero />
           <MusicPlayer />
           <FloatingWindows />
           <InteractiveBook />
-          <GraduationCapScene />
           <ClassroomModeSwitcher />
           <GratitudeTerminal />
           <GratitudeStats />
+          <GraduationCapScene />
           <HoverRevealSection />
           <GiftBox />
           <LetterPuzzle />
@@ -43,6 +44,7 @@ export default function Page() {
           <InfiniteEnding />
           <ClassroomControls />
           <PartyPopperControl />
+          <WaterRippleLayer />
         </main>
       )}
     </>

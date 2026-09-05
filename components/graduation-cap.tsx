@@ -12,12 +12,13 @@ export function GraduationCapScene() {
   return (
     <section className="relative flex min-h-[80vh] flex-col items-center justify-center overflow-hidden bg-app-gradient px-4 py-24 sm:px-6">
       <div className="mb-8 flex flex-col items-center gap-3 text-center">
-        <span className="rounded-full border border-border bg-white/70 px-3 py-1 text-[11px] font-medium tracking-widest text-primary">
+        <span className="rounded-full border border-border bg-card/90 shadow-sm px-3 py-1 text-[11px] font-medium tracking-widest text-primary">
           WHAT THEY GAVE US
         </span>
         <h2 className="font-heading text-3xl font-semibold text-foreground sm:text-4xl">Not just a degree</h2>
       </div>
 
+      <div className="pointer-events-none absolute h-72 w-72 rounded-full bg-primary/10 blur-3xl sm:h-96 sm:w-96" aria-hidden="true" />
       <div
         className="relative flex h-56 w-56 items-center justify-center sm:h-72 sm:w-72"
         style={{ perspective: "1200px" }}
@@ -39,7 +40,7 @@ export function GraduationCapScene() {
         >
           {/* Cap top (board) */}
           <div
-            className="absolute left-1/2 top-1/2 h-36 w-36 -translate-x-1/2 -translate-y-1/2 rotate-45 rounded-md bg-gradient-to-br from-foreground/90 to-foreground/70 shadow-2xl sm:h-48 sm:w-48"
+            className="absolute left-1/2 top-1/2 h-36 w-36 -translate-x-1/2 -translate-y-1/2 rotate-45 rounded-md bg-gradient-to-br from-primary/80 to-secondary shadow-2xl sm:h-48 sm:w-48"
             style={{ transform: "translateZ(20px) rotateX(60deg) rotate(45deg)" }}
           />
           {/* Cap button */}
@@ -59,7 +60,7 @@ export function GraduationCapScene() {
           </motion.div>
           {/* Cap base cone */}
           <div
-            className="absolute left-1/2 top-1/2 h-16 w-16 -translate-x-1/2 -translate-y-1/2 rounded-full bg-foreground/80 shadow-xl sm:h-20 sm:w-20"
+            className="absolute left-1/2 top-1/2 h-16 w-16 -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/75 shadow-xl sm:h-20 sm:w-20"
             style={{ transform: "translateZ(-10px)" }}
           />
         </motion.div>

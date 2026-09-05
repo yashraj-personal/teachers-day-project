@@ -327,3 +327,27 @@ html.custom-cursor-active,
 html.custom-cursor-active * {
   cursor: none !important;
 }
+
+.water-ripple {
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  margin: -9px;
+  border: 1px solid color-mix(in srgb, var(--sky) 75%, transparent);
+  border-radius: 999px;
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--primary) 25%, transparent), 0 0 24px color-mix(in srgb, var(--sky) 40%, transparent);
+  animation: water-ripple 850ms cubic-bezier(.18,.75,.22,1) both;
+}
+
+@keyframes water-ripple {
+  from { opacity: .8; transform: scale(.5); }
+  to { opacity: 0; transform: scale(13); }
+}
+
+.student-connection-dots { display: inline-flex; gap: .18rem; color: var(--primary); animation: connection-dots 1.4s ease-in-out infinite; }
+@keyframes connection-dots { 0%, 100% { opacity: .25; transform: translateX(-3px); } 50% { opacity: 1; transform: translateX(3px); } }
+
+.page-ambient::before,
+.page-ambient::after { content: ""; position: absolute; pointer-events: none; border-radius: 999px; filter: blur(1px); opacity: .25; }
+.page-ambient::before { width: 22rem; height: 22rem; left: -12rem; top: 8%; background: radial-gradient(circle, color-mix(in srgb, var(--primary) 35%, transparent), transparent 68%); }
+.page-ambient::after { width: 18rem; height: 18rem; right: -8rem; bottom: 12%; background: radial-gradient(circle, color-mix(in srgb, var(--gold) 28%, transparent), transparent 68%); }

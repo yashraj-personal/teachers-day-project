@@ -21,7 +21,7 @@ export function InteractiveBook() {
   return (
     <section id="lessons" className="relative flex min-h-screen flex-col items-center justify-center bg-app-gradient px-4 py-24 sm:px-6">
       <div className="mb-10 flex flex-col items-center gap-3 text-center">
-        <span className="rounded-full border border-border bg-white/70 px-3 py-1 text-[11px] font-medium tracking-widest text-primary">
+        <span className="rounded-full border border-border bg-card/80 shadow-sm px-3 py-1 text-[11px] font-medium tracking-widest text-primary">
           THE DIGITAL DIARY
         </span>
         <h2 className="font-heading text-3xl font-semibold text-foreground sm:text-4xl">A book of quiet lessons</h2>
@@ -62,7 +62,7 @@ export function InteractiveBook() {
             onClick={() => goTo(index - 1)}
             disabled={index === 0}
             aria-label="Previous page"
-            className="flex h-10 w-10 items-center justify-center rounded-full border border-border bg-white/70 text-foreground transition-opacity disabled:opacity-30"
+            className="flex h-10 w-10 items-center justify-center rounded-full border border-border bg-card/80 shadow-sm text-foreground transition-opacity disabled:opacity-30"
           >
             <ChevronLeft className="h-4 w-4" />
           </button>
@@ -81,7 +81,7 @@ export function InteractiveBook() {
             onClick={() => goTo(index + 1)}
             disabled={index === pages.length - 1}
             aria-label="Next page"
-            className="flex h-10 w-10 items-center justify-center rounded-full border border-border bg-white/70 text-foreground transition-opacity disabled:opacity-30"
+            className="flex h-10 w-10 items-center justify-center rounded-full border border-border bg-card/80 shadow-sm text-foreground transition-opacity disabled:opacity-30"
           >
             <ChevronRight className="h-4 w-4" />
           </button>

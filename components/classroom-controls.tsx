@@ -40,7 +40,26 @@ export function ClassroomControls() {
     return () => observer.disconnect()
   }, [setActiveSection])
 
+  const playNavigationSound = () => {
+    const AudioContextClass = window.AudioContext || (window as typeof window & { webkitAudioContext?: typeof AudioContext }).webkitAudioContext
+    if (!AudioContextClass) return
+    const context = new AudioContextClass()
+    const oscillator = context.createOscillator()
+    const gain = context.createGain()
+    oscillator.type = "sine"
+    oscillator.frequency.setValueAtTime(520, context.currentTime)
+    oscillator.frequency.exponentialRampToValueAtTime(760, context.currentTime + 0.08)
+    gain.gain.setValueAtTime(0.0001, context.currentTime)
+    gain.gain.exponentialRampToValueAtTime(0.045, context.currentTime + 0.01)
+    gain.gain.exponentialRampToValueAtTime(0.0001, context.currentTime + 0.12)
+    oscillator.connect(gain).connect(context.destination)
+    oscillator.start()
+    oscillator.stop(context.currentTime + 0.12)
+    window.setTimeout(() => void context.close(), 180)
+  }
+
   const scrollTo = (id: string) => {
+    playNavigationSound()
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" })
   }
 

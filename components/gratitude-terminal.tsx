@@ -41,14 +41,14 @@ export function GratitudeTerminal() {
   return (
     <section className="relative flex min-h-[70vh] flex-col items-center justify-center bg-app-gradient px-4 py-24 sm:px-6">
       <div className="mb-8 flex flex-col items-center gap-3 text-center">
-        <span className="rounded-full border border-border bg-white/70 px-3 py-1 text-[11px] font-medium tracking-widest text-primary">
+        <span className="rounded-full border border-primary/25 bg-card/80 px-3 py-1 text-[11px] font-medium tracking-widest text-primary shadow-sm">
           SYSTEM LOG
         </span>
         <h2 className="font-heading text-3xl font-semibold text-foreground sm:text-4xl">Compiling gratitude</h2>
       </div>
 
       <div ref={ref} className="glass-panel glow-ring w-full max-w-lg overflow-hidden rounded-2xl">
-        <div className="flex items-center gap-2 border-b border-border bg-white/50 px-4 py-2.5">
+        <div className="flex items-center gap-2 border-b border-border bg-[#07130f] px-4 py-2.5">
           <Terminal className="h-3.5 w-3.5 text-primary" />
           <span className="text-[11px] font-medium tracking-wide text-muted-foreground">gratitude.sh</span>
         </div>
@@ -56,16 +56,16 @@ export function GratitudeTerminal() {
           {SITE_CONFIG.terminalLines.slice(0, lineCount).map((line, i) => {
             const shown = line.slice(0, charCounts[i] ?? 0)
             const isDone = shown.length === line.length
-            const isReady = line === "READY"
+            const isReady = line.includes("READY")
             return (
-              <p key={line} className={isReady && isDone ? "font-semibold text-connected" : "text-foreground/80"}>
-                <span className="mr-2 text-primary">{">"}</span>
+              <p key={line} className={isReady && isDone ? "font-semibold text-connected" : "text-[#9fffc0]"}>
+                <span className="mr-2 text-[#39ff88]">{">"}</span>
                 {shown}
                 {i === lineCount - 1 && !isDone && (
                   <motion.span
                     animate={{ opacity: [1, 0] }}
                     transition={{ duration: 0.6, repeat: Number.POSITIVE_INFINITY }}
-                    className="ml-0.5 inline-block h-3.5 w-1.5 bg-primary align-middle"
+                    className="ml-0.5 inline-block h-3.5 w-1.5 bg-[#39ff88] align-middle"
                   />
                 )}
               </p>

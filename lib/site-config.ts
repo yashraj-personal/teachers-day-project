@@ -53,11 +53,12 @@ export const SITE_CONFIG = {
     { id: "celebration", label: "Celebration" },
   ] as const,
   terminalLines: [
-    "Initializing gratitude module...",
-    "Loading four semesters of lessons...",
-    "Compiling every doubt, every answer...",
-    "Verifying connection: STRONG",
-    "READY",
+    "[boot] starting gratitude.kernel",
+    "[scan] indexing four semesters of lessons",
+    "[trace] resolving every doubt -> every answer",
+    "[sync] 72 student nodes connected",
+    "[write] compiling final teacher tribute",
+    "[status] READY // gratitude online",
   ],
   navItems: [
     { id: "home", label: "Home" },

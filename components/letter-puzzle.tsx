@@ -49,7 +49,7 @@ export function LetterPuzzle() {
   return (
     <section className="relative flex min-h-[70vh] flex-col items-center justify-center bg-app-gradient px-4 py-24 sm:px-6">
       <div className="mb-8 flex flex-col items-center gap-3 text-center">
-        <span className="rounded-full border border-border bg-white/70 px-3 py-1 text-[11px] font-medium tracking-widest text-primary">
+        <span className="rounded-full border border-border bg-card/80 shadow-sm px-3 py-1 text-[11px] font-medium tracking-widest text-primary">
           A SMALL PUZZLE
         </span>
         <h2 className="font-heading text-3xl font-semibold text-foreground sm:text-4xl">Arrange what we mean</h2>
@@ -61,7 +61,7 @@ export function LetterPuzzle() {
           <div
             key={i}
             className={`flex h-12 w-10 items-center justify-center rounded-xl border-2 font-heading text-lg font-semibold sm:h-14 sm:w-12 ${
-              char ? "border-primary bg-white text-primary" : "border-dashed border-border bg-white/40 text-transparent"
+              char ? "border-primary bg-card text-primary" : "border-dashed border-border bg-card/40 text-transparent"
             }`}
           >
             {char ?? "_"}
@@ -101,7 +101,7 @@ export function LetterPuzzle() {
           <button
             data-magnetic
             onClick={reset}
-            className="rounded-full border border-border bg-white/70 px-4 py-1.5 text-xs font-medium text-foreground"
+            className="rounded-full border border-border bg-card/80 shadow-sm px-4 py-1.5 text-xs font-medium text-foreground"
           >
             Play again
           </button>

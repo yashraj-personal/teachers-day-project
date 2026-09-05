@@ -5,10 +5,10 @@ import { AnimatePresence, motion } from "framer-motion"
 import { Gift, Heart, Mail, Music2, Palette, Sparkles } from "lucide-react"
 
 const gifts = [
-  [Music2, "A song", "For every lesson that became a memory."],
-  [Mail, "Messages", "For the words we should have said sooner."],
-  [Palette, "Artwork", "For the color you brought to difficult days."],
-  [Heart, "A thank-you", "For teaching beyond the syllabus."],
+  { icon: Music2, title: "A song", copy: "For every lesson that became a memory.", target: "song" },
+  { icon: Mail, title: "Messages", copy: "For the words we should have said sooner.", target: "messages" },
+  { icon: Palette, title: "Artwork", copy: "For the color you brought to difficult days.", target: "lessons" },
+  { icon: Heart, title: "A thank-you", copy: "For teaching beyond the syllabus.", target: "next" },
 ]
 
 export function GiftBox() {
@@ -26,9 +26,23 @@ export function GiftBox() {
         <AnimatePresence>
           {open && (
             <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} className="mt-12 grid w-full gap-3 text-left sm:grid-cols-2">
-              {gifts.map(([Icon, title, copy]) => {
+              {gifts.map(({ icon: Icon, title, copy, target }) => {
                 const GiftIcon = Icon as typeof Sparkles
-                return <div key={title as string} className="glass-panel rounded-2xl p-5"><GiftIcon className="h-5 w-5 text-gold" /><h3 className="mt-3 font-heading font-semibold text-foreground">{title as string}</h3><p className="mt-1 text-sm leading-6 text-muted-foreground">{copy as string}</p></div>
+                return (
+                  <button
+                    key={title}
+                    type="button"
+                    data-magnetic
+                    onClick={() => document.getElementById(target)?.scrollIntoView({ behavior: "smooth", block: "start" })}
+                    className="glass-panel reveal-card group rounded-2xl p-5 text-left transition-transform hover:-translate-y-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+                    aria-label={`Open ${title}`}
+                  >
+                    <GiftIcon className="h-5 w-5 text-gold transition-transform group-hover:scale-110" aria-hidden="true" />
+                    <h3 className="mt-3 font-heading font-semibold text-foreground">{title}</h3>
+                    <p className="mt-1 text-sm leading-6 text-muted-foreground">{copy}</p>
+                    <span className="mt-4 inline-block text-xs font-semibold uppercase tracking-widest text-primary opacity-70 transition-opacity group-hover:opacity-100">Explore section</span>
+                  </button>
+                )
               })}
             </motion.div>
           )}
