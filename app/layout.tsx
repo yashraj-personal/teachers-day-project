@@ -12,6 +12,7 @@ import { AtmosphereEffects } from '@/components/atmosphere-effects'
 import { ContactButton } from '@/components/contact-button'
 import { ThemeProvider } from '@/components/theme-provider'
 import { ThemeSwitcher } from '@/components/theme-switcher'
+import { NotificationCenter } from '@/components/notification-center'
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
 const spaceGrotesk = Space_Grotesk({ subsets: ['latin'], variable: '--font-space-grotesk' })
@@ -58,6 +59,7 @@ export default function RootLayout({
         <ThemeProvider>
           <SiteExperienceProvider>
             <ThemeSwitcher />
+            <NotificationCenter />
           <ClassProgressBar />
           <ConnectionStatusBadge />
           <MadeByYashBadge />
