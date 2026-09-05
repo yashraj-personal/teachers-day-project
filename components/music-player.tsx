@@ -183,7 +183,7 @@ export function MusicPlayer() {
         )}
       </motion.div>
 
-      <LyricsPanel currentTime={currentTime} duration={duration} playing={audioPlaying} />
+      <LyricsPanel />
     </section>
   )
 }

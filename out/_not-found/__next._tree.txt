@@ -1,2 +1,2 @@
-:HL["/teachers-day-project/_next/static/chunks/11hk2yyo1xq38.css","style"]
-0:{"tree":{"name":"","param":null,"prefetchHints":4176,"slots":{"children":{"name":"/_not-found","param":null,"prefetchHints":4192,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":4256,"slots":null}}}}},"staleTime":300,"buildId":"ul2YmIkcOZpIhUeHq6Esh"}
+:HL["/teachers-day-project/_next/static/chunks/0yczo0xa_jqex.css","style"]
+0:{"tree":{"name":"","param":null,"prefetchHints":4176,"slots":{"children":{"name":"/_not-found","param":null,"prefetchHints":4192,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":4256,"slots":null}}}}},"staleTime":300,"buildId":"1kBBmdEn6dXmvUMrsgvON"}
