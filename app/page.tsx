@@ -12,9 +12,12 @@ import { GraduationCapScene } from "@/components/graduation-cap"
 import { ClassroomModeSwitcher } from "@/components/classroom-mode-switcher"
 import { GratitudeTerminal } from "@/components/gratitude-terminal"
 import { GratitudeStats } from "@/components/gratitude-stats"
-import { SecretTeacherMode } from "@/components/secret-teacher-mode"
 import { LetterPuzzle } from "@/components/letter-puzzle"
 import { FinalTribute } from "@/components/final-tribute"
+import { HoverRevealSection } from "@/components/hover-reveal-section"
+import { GiftBox } from "@/components/gift-box"
+import { PartyPopperControl } from "@/components/party-popper-control"
+import { InfiniteEnding } from "@/components/infinite-ending"
 
 export default function Page() {
   const [loaded, setLoaded] = useState(false)
@@ -33,10 +36,13 @@ export default function Page() {
           <ClassroomModeSwitcher />
           <GratitudeTerminal />
           <GratitudeStats />
-          <SecretTeacherMode />
+          <HoverRevealSection />
+          <GiftBox />
           <LetterPuzzle />
           <FinalTribute />
+          <InfiniteEnding />
           <ClassroomControls />
+          <PartyPopperControl />
         </main>
       )}
     </>

@@ -11,7 +11,7 @@ const confetti = Array.from({ length: 28 }, (_, index) => ({
 }))
 
 export function AtmosphereEffects() {
-  const { classroomMode, audioPlaying, audioPulse } = useSiteExperience()
+  const { classroomMode, audioPlaying, audioPulse, partyPopperActive } = useSiteExperience()
   const previousMode = useRef(classroomMode)
   const celebrationStarted = classroomMode === "celebration" && previousMode.current !== "celebration"
 
@@ -39,8 +39,16 @@ export function AtmosphereEffects() {
       {classroomMode === "celebration" && (
         <div className={`confetti-layer ${celebrationStarted ? "confetti-layer-active" : ""}`}>
           {confetti.map((piece, index) => (
-            <span key={index} style={{ left: piece.left, animationDelay: piece.delay, backgroundColor: piece.color }} />
+            <span key={`celebration-${index}`} style={{ left: piece.left, animationDelay: piece.delay, backgroundColor: piece.color }} />
           ))}
+        </div>
+      )}
+      {partyPopperActive && (
+        <div key={String(partyPopperActive)} className="confetti-layer confetti-layer-active confetti-layer-global">
+          {Array.from({ length: 90 }, (_, index) => {
+            const piece = confetti[index % confetti.length]
+            return <span key={`party-${index}`} style={{ left: `${(index * 17) % 100}%`, animationDelay: `${(index % 15) * 0.045}s`, backgroundColor: index % 4 === 0 ? "var(--gold)" : index % 4 === 1 ? "var(--primary)" : index % 4 === 2 ? "var(--accent)" : "var(--connected)" }} />
+          })}
         </div>
       )}
     </div>

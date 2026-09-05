@@ -20,6 +20,8 @@ type SiteExperienceValue = {
   setAudioPulse: (pulse: number) => void
   teacherModeActive: boolean
   activateTeacherMode: () => void
+  partyPopperActive: boolean
+  triggerPartyPoppers: () => void
 }
 
 const SiteExperienceContext = createContext<SiteExperienceValue | null>(null)
@@ -32,8 +34,13 @@ export function SiteExperienceProvider({ children }: { children: ReactNode }) {
   const [audioPlaying, setAudioPlaying] = useState(false)
   const [audioPulse, setAudioPulse] = useState(0)
   const [teacherModeActive, setTeacherModeActive] = useState(false)
+  const [partyPopperActive, setPartyPopperActive] = useState(false)
 
   const activateTeacherMode = useCallback(() => setTeacherModeActive(true), [])
+  const triggerPartyPoppers = useCallback(() => {
+    setPartyPopperActive(false)
+    requestAnimationFrame(() => setPartyPopperActive(true))
+  }, [])
 
   const value = useMemo(
     () => ({
@@ -51,8 +58,10 @@ export function SiteExperienceProvider({ children }: { children: ReactNode }) {
       setAudioPulse,
       teacherModeActive,
       activateTeacherMode,
+      partyPopperActive,
+      triggerPartyPoppers,
     }),
-    [activeSection, progress, connection, classroomMode, audioPlaying, audioPulse, teacherModeActive, activateTeacherMode],
+    [activeSection, progress, connection, classroomMode, audioPlaying, audioPulse, teacherModeActive, activateTeacherMode, partyPopperActive, triggerPartyPoppers],
   )
 
   return <SiteExperienceContext.Provider value={value}>{children}</SiteExperienceContext.Provider>
