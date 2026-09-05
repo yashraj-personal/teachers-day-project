@@ -1,0 +1,159 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+@import 'shadcn/tailwind.css';
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --color-foreground: var(--foreground);
+  --color-background: var(--background);
+  --color-gold: var(--gold);
+  --color-sky: var(--sky);
+  --color-connected: var(--connected);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+  --font-sans: var(--font-inter);
+  --font-heading: var(--font-space-grotesk);
+  --font-mono: var(--font-space-grotesk);
+}
+
+:root {
+  color-scheme: dark;
+  --background: #07090f;
+  --foreground: #e9eefb;
+  --card: #111725;
+  --card-foreground: #e9eefb;
+  --popover: #111725;
+  --popover-foreground: #e9eefb;
+  --primary: #4d8dff;
+  --primary-foreground: #07090f;
+  --secondary: #162033;
+  --secondary-foreground: #e9eefb;
+  --muted: #162033;
+  --muted-foreground: #97a6c4;
+  --accent: #38bdf8;
+  --accent-foreground: #07090f;
+  --destructive: #f87171;
+  --border: rgba(233, 238, 251, 0.12);
+  --input: rgba(233, 238, 251, 0.16);
+  --ring: #4d8dff;
+  --gold: #f4b942;
+  --sky: #38bdf8;
+  --connected: #34d399;
+  --radius: 1rem;
+}
+
+/* This site has a fixed dark-gradient identity by design and does not follow the system light-mode preference. */
+.dark {
+  color-scheme: dark;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html {
+    @apply bg-background;
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-background text-foreground font-sans;
+  }
+}
+
+@layer utilities {
+  .font-heading {
+    font-family: var(--font-heading);
+  }
+
+  .text-balance-tight {
+    letter-spacing: -0.02em;
+  }
+
+  .bg-app-gradient {
+    background: radial-gradient(120% 120% at 15% 0%, #16233c 0%, #0b1122 45%, #07090f 100%);
+  }
+
+  .bg-panel-gradient {
+    background: linear-gradient(135deg, rgba(22, 32, 51, 0.9) 0%, rgba(11, 17, 34, 0.75) 100%);
+  }
+
+  .bg-gold-gradient {
+    background: linear-gradient(135deg, #f4b942 0%, #fbd576 100%);
+  }
+
+  .glass-panel {
+    background: rgba(17, 23, 37, 0.65);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(233, 238, 251, 0.1);
+  }
+
+  .glow-ring {
+    box-shadow: 0 0 0 1px rgba(77, 141, 255, 0.2), 0 20px 60px -20px rgba(77, 141, 255, 0.45);
+  }
+
+  .text-gradient-primary {
+    background: linear-gradient(135deg, #4d8dff 0%, #38bdf8 60%, #f4b942 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    scrollbar-width: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+html.custom-cursor-active,
+html.custom-cursor-active * {
+  cursor: none !important;
+}
